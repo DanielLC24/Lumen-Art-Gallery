@@ -243,6 +243,17 @@
             padding: 24px;
         }
         @media (max-width: 900px) {
+            .nav {
+                gap: 12px;
+            }
+            .brand {
+                min-width: 0;
+            }
+            .brand span:last-child {
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+            }
             .checkout {
                 grid-template-columns: 1fr;
             }
@@ -254,8 +265,66 @@
             }
         }
         @media (max-width: 620px) {
+            body {
+                overflow-x: hidden;
+            }
+            .nav {
+                align-items: stretch;
+                flex-direction: column;
+                padding: 12px 14px;
+            }
+            .brand {
+                gap: 8px;
+                letter-spacing: .04em;
+            }
+            .brand-mark {
+                height: 32px;
+                width: 32px;
+            }
+            .button, .button-secondary, .button-danger {
+                min-height: 44px;
+                padding: 0 14px;
+                width: 100%;
+            }
+            main {
+                padding: 28px 18px;
+            }
+            .hero {
+                gap: 12px;
+                margin-bottom: 24px;
+            }
+            h1 {
+                font-size: clamp(40px, 13vw, 58px);
+            }
+            h2 {
+                font-size: clamp(28px, 9vw, 38px);
+            }
+            .panel {
+                padding: 18px;
+            }
             .cart-item, .form-grid {
                 grid-template-columns: 1fr;
+            }
+            .cart-item img {
+                max-height: 260px;
+            }
+            .item-actions {
+                display: grid;
+                grid-template-columns: 1fr;
+            }
+            .item-actions form {
+                display: block;
+            }
+            .summary-line {
+                align-items: start;
+                flex-direction: column;
+                gap: 4px;
+            }
+            .summary-line.total {
+                font-size: 18px;
+            }
+            .favorite-card div {
+                padding: 14px;
             }
         }
     </style>

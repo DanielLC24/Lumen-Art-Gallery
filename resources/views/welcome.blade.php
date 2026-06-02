@@ -1282,12 +1282,30 @@
 
         @media (max-width: 900px) {
             .nav-links { display: none; }
+            .nav {
+                gap: 12px;
+            }
+            .brand {
+                min-width: 0;
+            }
+            .brand span:last-child {
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+            }
             .section-head, .about-grid, .immersive, .catalog, .contact {
                 grid-template-columns: 1fr;
+            }
+            .section-head {
+                align-items: start;
+            }
+            .art-grid {
+                columns: 2 240px;
             }
             .lightbox-shell {
                 grid-template-columns: 1fr;
                 height: 94vh;
+                overflow-y: auto;
             }
             .lightbox-stage {
                 min-height: 44vh;
@@ -1301,17 +1319,125 @@
         }
 
         @media (max-width: 620px) {
-            .hero { min-height: 92vh; }
-            .hero-content { padding-top: 18vh; }
+            body {
+                background-attachment: scroll;
+                overflow-x: hidden;
+            }
+            .nav {
+                padding: 12px 14px;
+            }
+            .nav.scrolled {
+                padding: 10px 14px;
+            }
+            .nav-actions {
+                flex-shrink: 0;
+                gap: 8px;
+            }
+            .brand {
+                gap: 8px;
+                letter-spacing: .04em;
+            }
+            .brand-mark {
+                height: 32px;
+                width: 32px;
+            }
+            .icon-button, .cart-link {
+                min-height: 40px;
+                width: 40px;
+            }
+            .pill-button, .outline-button {
+                min-height: 44px;
+                padding: 0 14px;
+            }
+            .hero {
+                min-height: 88svh;
+            }
+            .hero::before {
+                background:
+                    linear-gradient(90deg, rgba(8, 7, 6, .82), rgba(8, 7, 6, .34) 62%, rgba(8, 7, 6, .18)),
+                    linear-gradient(0deg, rgba(8, 7, 6, .78), transparent 42%);
+            }
+            .hero-content {
+                max-width: 100%;
+                padding: 18svh 18px 112px;
+            }
             .hero-content::before {
                 height: 74px;
+                left: 18px;
                 top: 13vh;
+            }
+            h1 {
+                font-size: clamp(42px, 14vw, 64px);
+                line-height: 1;
+            }
+            .hero p {
+                font-size: 16px;
+                line-height: 1.55;
+                margin: 18px 0 26px;
             }
             .hero-note {
                 display: none;
             }
+            .scroll-cue {
+                bottom: 18px;
+                left: 18px;
+                right: auto;
+            }
+            section {
+                padding: 58px 18px;
+            }
+            .section-head {
+                gap: 14px;
+                margin-bottom: 26px;
+            }
+            .section-head h2 {
+                font-size: clamp(34px, 11vw, 48px);
+            }
+            .filters {
+                display: grid;
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                width: 100%;
+            }
+            .filter {
+                min-height: 44px;
+                padding: 9px 10px;
+                width: 100%;
+            }
+            .art-grid {
+                columns: 1;
+            }
+            .art-overlay {
+                opacity: 1;
+                padding: 58px 16px 16px;
+                transform: none;
+            }
+            .art-card:hover,
+            .card:hover,
+            .shop-card:hover {
+                transform: none;
+            }
             .stats, .cards, .shop-grid {
                 grid-template-columns: 1fr;
+            }
+            .stat strong {
+                font-size: 34px;
+            }
+            .card-body,
+            .shop-card div,
+            .catalog-panel,
+            form {
+                padding: 18px;
+            }
+            .immersive {
+                gap: 22px;
+            }
+            .tour-stage {
+                aspect-ratio: auto;
+                min-height: 420px;
+            }
+            .hotspot {
+                height: 38px;
+                width: 38px;
             }
             .tour-rooms {
                 grid-template-columns: 1fr;
@@ -1322,9 +1448,88 @@
             .tour-caption {
                 align-items: start;
                 flex-direction: column;
+                gap: 10px;
+                padding: 16px;
             }
             .testimonial {
                 grid-template-columns: 1fr;
+            }
+            .shop-actions,
+            .lightbox-actions {
+                display: grid;
+                grid-template-columns: 1fr;
+            }
+            .shop-actions form,
+            .shop-actions a,
+            .shop-actions button,
+            .lightbox-actions > * {
+                width: 100%;
+            }
+            .lightbox {
+                padding: 10px;
+            }
+            .lightbox.open {
+                align-items: start;
+                place-items: start stretch;
+            }
+            .lightbox-shell {
+                gap: 12px;
+                height: auto;
+                max-height: calc(100svh - 20px);
+                width: 100%;
+            }
+            .lightbox-stage {
+                min-height: 48svh;
+            }
+            .lightbox-panel {
+                padding: 18px;
+            }
+            .lightbox-panel h2 {
+                font-size: clamp(30px, 10vw, 42px);
+            }
+            .lightbox-meta div {
+                grid-template-columns: 1fr;
+            }
+            .lightbox-close {
+                right: 10px;
+                top: 10px;
+            }
+            .lightbox-prev {
+                left: 10px;
+            }
+            .lightbox-next {
+                right: 10px;
+            }
+            footer {
+                padding: 28px 18px;
+            }
+            .reveal,
+            .reveal .section-head .eyebrow,
+            .reveal .section-head h2,
+            .reveal .section-head > p,
+            .reveal > .eyebrow,
+            .reveal > h2,
+            .reveal > p,
+            .reveal .filters,
+            .reveal .about-image,
+            .reveal .about-copy,
+            .reveal .tour,
+            .reveal .catalog-hero,
+            .reveal .catalog-panel,
+            .reveal .testimonial-carousel,
+            .reveal.contact > div,
+            .reveal.contact > form {
+                animation: none !important;
+                opacity: 1 !important;
+                transform: none !important;
+            }
+            .reveal .card,
+            .reveal .art-card,
+            .reveal .shop-card,
+            .reveal .event {
+                animation: none !important;
+                opacity: 1;
+                transform: none;
             }
         }
     </style>
@@ -1398,7 +1603,6 @@
                     <p class="eyebrow">Obras destacadas</p>
                     <h2>Colección seleccionada.</h2>
                 </div>
-                <p>Filtros interactivos, vista tipo masonry y detalles rápidos para simular una experiencia de catálogo premium.</p>
             </div>
             <div class="filters">
                 <button class="filter active" data-filter="all" aria-pressed="true">Todo</button>
@@ -1446,7 +1650,6 @@
                     <p class="eyebrow">Artistas</p>
                     <h2>Voces visuales con presencia propia.</h2>
                 </div>
-                <p>Tarjetas con biografía breve, especialidad y obras representativas para presentar el talento de la galería.</p>
             </div>
             <div class="cards">
                 @forelse ($artists as $artist)
@@ -1517,7 +1720,6 @@
                     <p class="eyebrow">Exposiciones y eventos</p>
                     <h2>Agenda curatorial.</h2>
                 </div>
-                <p>Un calendario visual para próximas exposiciones, noches privadas y eventos de colección.</p>
             </div>
             <div class="events">
                 @forelse ($events as $event)
@@ -1545,7 +1747,6 @@
                     <p class="eyebrow">Tienda de arte</p>
                     <h2>Carrito, favoritos y disponibilidad.</h2>
                 </div>
-                <p>Catalogo conectado al carrito: agrega piezas disponibles, guarda favoritos y revisa el total en la vista de compra.</p>
             </div>
             <div class="shop-grid">
                 @forelse ($shopArtworks as $shopArtwork)
@@ -1733,16 +1934,22 @@
         window.addEventListener('scroll', updateScrollEffects, { passive: true });
         updateScrollEffects();
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                    if (entry.target.id === 'sobre') animateStats();
-                }
-            });
-        }, { threshold: .16 });
+        const revealSections = document.querySelectorAll('.reveal');
 
-        document.querySelectorAll('.reveal').forEach((item) => observer.observe(item));
+        if ('IntersectionObserver' in window) {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        if (entry.target.id === 'sobre') animateStats();
+                    }
+                });
+            }, { threshold: .08, rootMargin: '0px 0px -8% 0px' });
+
+            revealSections.forEach((item) => observer.observe(item));
+        } else {
+            revealSections.forEach((item) => item.classList.add('visible'));
+        }
 
         let statsDone = false;
         function animateStats() {

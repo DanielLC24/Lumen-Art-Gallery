@@ -289,17 +289,95 @@
         }
 
         @media (max-width: 900px) {
+            .nav {
+                gap: 12px;
+            }
+            .brand {
+                min-width: 0;
+            }
+            .brand span:last-child {
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+            }
             .detail, .related-grid {
                 grid-template-columns: 1fr;
+            }
+            .art-image {
+                order: -1;
             }
         }
 
         @media (max-width: 620px) {
+            body {
+                background-attachment: scroll;
+                overflow-x: hidden;
+            }
+            .nav {
+                align-items: stretch;
+                flex-direction: column;
+                padding: 12px 14px;
+            }
+            .nav-actions {
+                display: grid;
+                gap: 8px;
+                grid-template-columns: 42px 1fr;
+                width: 100%;
+            }
+            .brand {
+                gap: 8px;
+                letter-spacing: .04em;
+            }
+            .brand-mark {
+                height: 32px;
+                width: 32px;
+            }
+            .back-link, .pill-button, .outline-button {
+                min-height: 44px;
+                padding: 0 14px;
+                width: 100%;
+            }
+            .cart-link {
+                min-width: 42px;
+            }
+            main {
+                padding: 28px 18px;
+            }
+            .detail {
+                gap: 24px;
+            }
+            .art-image {
+                padding: 10px;
+            }
+            h1 {
+                font-size: clamp(40px, 13vw, 58px);
+            }
+            .artist {
+                margin: 14px 0 20px;
+            }
+            .description {
+                font-size: 16px;
+                line-height: 1.65;
+            }
             .facts {
                 grid-template-columns: 1fr;
             }
             .fact:nth-child(odd) {
                 border-right: 0;
+            }
+            .actions {
+                display: grid;
+                grid-template-columns: 1fr;
+            }
+            .related {
+                margin-top: 58px;
+            }
+            .related-card div {
+                padding: 16px;
+            }
+            footer {
+                margin-top: 44px;
+                padding: 28px 18px;
             }
         }
     </style>
